@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+	<main>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+		<script src="{% static 'js/item-slider.js' %}"></script>
+		
+		<section class="description">
+			{% if object_list %}
+			<h6>A selection of our top chefs, each renowned for their culinary excellence and innovation.</h6>
+			{% else %}
+			<h6>Currently, there are no chefs listed in this section, we're in the process of updating our roster.</h6>
+			{% endif %}
+		</section>
+		
+		{% if object_list %}
+		<div class="top-container">   
+			
+			<div class="swiper-container">
+				
+				<div class="swiper-wrapper">
+					{% for chef in object_list %}
+						<div class="swiper-slide">
+							<a href="{% url 'chef-details' pk=chef.pk slug=chef.slug %}">
+								<img src="{{ chef.image.url }}" class="slide-image">
+								<div class="swiper-slide-overlay"></div>
+								<div class="slide-content">
+									<h3 class="slide-title">{{ chef.name }}</h3>
+									<p class="slide-subtitle">
+									  {{ chef.get_primary_specialty_display }}
+									  {% if chef.secondary_specialty %}
+										/ {{ chef.get_secondary_specialty_display }}
+									  {% endif %}
+									</p>
+								</div>
+								</a>
+							</div>
+					{% endfor %}
+					
+				</div>
+			</div>
+
+			<div class="slider-navigation">
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</div>
+		{% endif %}
+		
+	</main>
+
+{% endblock %}

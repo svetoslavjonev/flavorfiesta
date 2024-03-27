@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<section class="description">
+			<h2>Add Occasion</h2>
+			<form class="profile-form" action="{% url 'occasion-create' %}" method="POST" enctype="multipart/form-data">
+				{{form.as_p}}
+				{% csrf_token %}
+				<button type="submit">Add Occasion</button>
+			</form>
+		</section>
+	</main>
+
+{% endblock %}

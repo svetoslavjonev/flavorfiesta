@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<div class="item-container">
+			<div class="details-comments-wrapper">
+				<div class="item-details">
+					<div class="item-image">
+						<img src="{{ chef.image.url }}" alt="Chef Image">
+					</div>
+					<div class="item-content">
+						<h2>{{ chef.name }}</h2>
+						<h4>
+							  {{ chef.get_primary_specialty_display }}
+							  {% if chef.secondary_specialty %}
+							  / {{ chef.get_secondary_specialty_display }}
+							  {% endif %}
+						</h4>
+						<h4>
+						  {% if chef.years_of_experience %}
+							{{ chef.years_of_experience }} Years of Experience
+						  {% endif %}
+						</h4>
+						<p>{{ chef.bio }}</p>
+						{% if request.user.is_staff %}
+						<div class="item-admin">
+							<a class="edit-item" href="{% url 'chef-edit' pk=chef.pk slug=chef.slug %}"><i class="fa-solid fa-pencil"></i></a>
+							<a class="delete-item" href="{% url 'chef-delete' pk=chef.pk slug=chef.slug %}"><i class="fa-solid fa-trash-can"></i></a>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			
+			<div class="next-events">
+				<h2> Upcoming events</h2>
+				<p> Apologies, but we currently have no scheduled events of {{chef.name}}. </p>
+			</div>
+		</div>
+	</main>
+
+{% endblock %}

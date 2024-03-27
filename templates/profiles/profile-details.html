@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<div class="profile-container">
+			<div class="profile-details">
+				<h2>Hello <em>{{ object.full_name|default:object.username }}</em>!</h2>
+				<h2>Thank you for being part of <em>flavor fiesta</em> since {{ object.date_joined|date:"Y" }}.</h2>
+	
+				<p><span>Username</span><span>{{ object.username }}</span></p>
+				<p><span>Email</span><span>{{ object.email }}</span></p>
+	
+				{% if  object.full_name %}
+					<p><span>Name</span><span>{{ object.full_name }}</span></p>
+				{% endif %}
+	
+				{% if  object.birth_date %}
+					<p><span>Birthday</span><span>{{ object.birth_date|date:"F d, Y" }}</span></p>
+				{% endif %}
+				
+				{% if  object.gender %}
+					<p><span>Gender</span><span>{{ object.gender }}</span></p>
+				{% endif %}
+	
+				{% if object.is_staff %}
+					<p>
+						<span>User Type</span>
+						{% if object.is_superuser %}
+							<span>superuser</span>
+						{% else %}
+							<span>staff</span>
+						{% endif %}
+					</p>
+				{% endif %}
+					<div class="icon-actions">
+			
+							<a class="edit-user" href="{% url 'profile-edit' pk=object.pk %}"><i class="fa-solid fa-user-pen"></i></a>
+						
+							<a class="delete-user" href="{% url 'profile-delete' pk=object.pk %}"><i class="fa-solid fa-user-xmark"></i></a>
+					</div>
+			</div>
+			<div class="upcoming-events">
+				<h2> Your upcoming events</h2>
+				<p> Sorry! You have no upcoming events.</p>
+			</div>
+		</div>
+	</main>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<section class="description">
+			<h2><i class="fa-solid fa-triangle-exclamation"></i> Proceed with caution <i class="fa-solid fa-triangle-exclamation"></i></h2>
+			<h6>Do you really want to end your flavor adventure and permanently delete all your data?</h6>
+			<form class="profile-form" action="{% url 'profile-delete' pk=object.pk %}" method="POST">
+				{% csrf_token %}
+				<button type="submit">Yes, Delete My Profile</button>
+			</form>
+
+		</section>
+	</main>
+
+{% endblock %}

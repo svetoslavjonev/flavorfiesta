@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+	<main>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+		<script src="{% static 'js/item-slider.js' %}"></script>
+		
+		<section class="description">
+			{% if object_list %}
+			<h6>A selection of our premier venues, each renowned for their distinctive ambiance and exceptional services.</h6>
+			{% else %}
+			<h6>Currently, there are no venues listed in this section, we're in the process of updating our collection.</h6>
+			{% endif %}
+		</section>
+		
+		{% if object_list %}
+		<section class="top-container">   
+			
+			<div class="swiper-container">
+				
+				<div class="swiper-wrapper">
+					{% for venue in object_list %}
+						<div class="swiper-slide">
+							<a href="{% url 'venue-details' pk=venue.pk slug=venue.slug %}">
+								<img src="{{ venue.image.url }}" class="slide-image">
+								<div class="swiper-slide-overlay"></div>
+								<div class="slide-content">
+									<h3 class="slide-title">{{ venue.name }}</h3>
+									<p class="slide-subtitle">{{ venue.location }}</p>
+								</div>
+								</a>
+						</div>
+					{% endfor %}
+					
+				</div>
+			</div>
+
+			<div class="slider-navigation">
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+		</section>
+		{% endif %}
+		
+	</main>
+
+{% endblock %}

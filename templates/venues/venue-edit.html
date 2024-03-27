@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<section class="description">
+			<h2>Edit Venue</h2>
+			<form class="profile-form" action="{% url 'venue-edit' pk=venue.pk slug=venue.slug %}" method="POST" enctype="multipart/form-data">
+				{{form.as_p}}
+				{% csrf_token %}
+				<button type="submit">Edit Venue</button>
+			</form>
+		</section>
+	</main>
+
+{% endblock %}

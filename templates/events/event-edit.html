@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<section class="description">
+			<h2>Edit Event</h2>
+			<form class="profile-form" action="{% url 'event-edit' pk=event.pk slug=event.slug %}" method="POST" enctype="multipart/form-data">
+				{{form.as_p}}
+				{% csrf_token %}
+				<button type="submit">Edit Event</button>
+			</form>
+		</section>
+	</main>
+
+{% endblock %}

@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load filters %}
+
+{% block content %}
+
+	<main>
+		<div class="item-container">
+			<div class="details-comments-wrapper">
+				<div class="item-details">
+					<div class="item-image">
+						<img src="{{ event.image.url }}" alt="Event Image">
+					</div>
+					<div class="item-content">
+						<h2>{{ event.name }}</h2>
+						<h4>{{ event.get_event_type_display }}</h4>
+						<p>{{ event.description }}</p>
+						{% if request.user.is_staff %}
+						<div class="item-admin">
+							<a class="edit-item" href="{% url 'event-edit' pk=event.pk slug=event.slug %}"><i class="fa-solid fa-pencil"></i></a>
+							<a class="delete-item" href="{% url 'event-delete' pk=event.pk slug=event.slug %}"><i class="fa-solid fa-trash-can"></i></a>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+
+				<div class="comments-container">
+					<div class="comments-header">
+						<h2>
+							{% if comments.count == 0 %}
+								No comments yet.
+							{% elif comments.count == 1 %}
+								1 Comment
+							{% else %}
+								{{ comments.count }} Comments
+							{% endif %}
+						</h2>
+					</div>
+
+					<div class="comments-list">
+						{% for comment in comments %}
+						<div class="comment-item">
+							<div class="comment-meta">
+								<span class="comment-user">{{ comment.user.full_name|default:comment.user.username }}</span>
+								<span class="comment-date">{{ comment.created_at|date:"M d, Y H:i" }}</span>
+							</div>
+							<div class="comment-content">
+								<p>{{ comment.content }}</p>
+							</div>
+							{% if request.user.is_staff %}
+							<div class="comment-actions">
+								<a class="edit-comment" href="{% url 'comment-edit' pk=comment.pk %}"><i class="fa-solid fa-pencil"></i></a>
+								<a class="delete-comment" href="{% url 'comment-delete' pk=comment.pk %}"><i class="fa-solid fa-trash-can"></i></a>
+							</div>
+							{% endif %}
+						</div>
+						{% empty %}
+						
+						{% endfor %}
+					</div>
+					<div class="comment-form">
+						<form action="{% url 'event-details' pk=event.pk slug=event.slug %}"method="post">
+							{% csrf_token %}
+							<p> {{ comment_form.content|placeholder:"Add new comment..." }}</p>
+							<button type="submit">Post Comment</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			
+			<div class="next-events">
+				<h2> Upcoming events</h2>
+				<p> Apologies, but we currently have no scheduled events for {{event.name}}. </p>
+			</div>
+		
+
+
+		</div>
+	</main>
+
+{% endblock %}

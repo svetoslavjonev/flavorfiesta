@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<section class="description">
+			<h2>Add Chef</h2>
+			<form class="profile-form" action="{% url 'chef-create' %}" method="POST" enctype="multipart/form-data">
+				{{form.as_p}}
+				{% csrf_token %}
+				<button type="submit">Add Chef</button>
+			</form>
+		</section>
+	</main>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<div class="item-container">
+			<div class="details-comments-wrapper">
+				<div class="item-details">
+					<div class="item-image">
+						<img src="{{ venue.image.url }}" alt="Venue Image">
+					</div>
+					<div class="item-content">
+						<h2>{{ venue.name }}</h2>
+						<h4>{{ venue.location }}</h4>
+						<p>{{ venue.description }}</p>
+						{% if request.user.is_staff %}
+						<div class="item-admin">
+							<a class="edit-item" href="{% url 'venue-edit' pk=venue.pk slug=venue.slug %}"><i class="fa-solid fa-pencil"></i></a>
+							<a class="delete-item" href="{% url 'venue-delete' pk=venue.pk slug=venue.slug %}"><i class="fa-solid fa-trash-can"></i></a>
+						</div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+			
+			<div class="next-events">
+				<h2> Upcoming events</h2>
+				<p> Apologies, but we currently have no scheduled events at {{venue.name}}. </p>
+			</div>
+		</div>
+	</main>
+
+{% endblock %}

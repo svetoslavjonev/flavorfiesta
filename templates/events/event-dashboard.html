@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+
+{% load static %}
+
+
+{% block content %}
+
+	<main>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/js/swiper.min.js"></script>
+		<script src="{% static 'js/item-slider.js' %}"></script>
+		
+		<section class="description">
+			{% if object_list %}
+			<h6>A selection of our finest cooking classes and tasting events.</h6>
+			{% else %}
+			<h6>There are no cooking classes or tasting events.</h6>
+			{% endif %}
+		</section>
+		
+		{% if object_list %}
+		<div class="top-container">   
+			
+			<div class="swiper-container">
+				
+				<div class="swiper-wrapper">
+					{% for event in object_list %}
+						<div class="swiper-slide">
+							<a href="{% url 'event-details' pk=event.pk slug=event.slug %}">
+								<img src="{{ event.image.url }}" class="slide-image">
+								<div class="swiper-slide-overlay"></div>
+								<div class="slide-content">
+									<h3 class="slide-title">{{ event.name }}</h3>
+									<p class="slide-subtitle">{{ event.get_event_type_display }}</p>
+								</div>
+							</a>
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			<div class="slider-navigation">
+				<div class="swiper-button-prev"></div>
+				<div class="swiper-button-next"></div>
+			</div>
+
+			
+		</div>
+		
+
+		{% endif %}
+		
+	</main>
+
+{% endblock %}

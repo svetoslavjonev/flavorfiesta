@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+		<section class="description">
+			<h2>Add Venue</h2>
+			<form class="profile-form" action="{% url 'venue-create' %}" method="POST" enctype="multipart/form-data">
+				{{form.as_p}}
+				{% csrf_token %}
+				<button type="submit">Add Venue</button>
+			</form>
+		</section>
+	</main>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+.profile-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: safe center;
+	gap: 25px;
+}
+.profile-details {
+	background-color: #ffffff; /* White background */
+	padding: 20px;
+	box-sizing: border-box;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+	max-width: 800px; /* Maximum width */
+	margin-top: 40px; /* Centering */
+	width: calc(66% - 10px);
+}
+
+.profile-details h2 {
+	color: #36454f; /* Dark grey color, consistent with body text color */
+	font-size: 1.5em;
+	text-align: center;
+	margin-top: 0;
+}
+
+.profile-details em {
+	font-style: oblique;
+	font-size: 1.2em;
+	color: #7B003A; /* Flavor Fiesta theme color, consistent with the original scheme */
+	font-weight: bold;
+}
+
+.profile-details p {
+	display: flex; /* Enable Flexbox for each paragraph */
+	justify-content: space-between; /* Align label on the left and data on the right */
+	line-height: 1.5;
+	margin-bottom: 10px;
+	font-size: 1.1em;
+	color: #36454f; /* Dark grey color */
+}
+
+.profile-details span:first-child {
+	font-weight: bold;
+	text-align: right;
+	width: 45%
+}
+
+.profile-details span:last-child {
+	text-align: left;
+	width: 50%;
+}
+
+.icon-actions {
+  display: flex;
+  justify-content: flex-end; /* Centers children horizontally in the container */
+  align-items: right;
+  margin-top: 10px; /* Adds some space above the icon-actions container */
+}
+
+.edit-user, .delete-user {
+  font-size: 30px; /* Increases the icon size */
+  margin: 0 10px; /* Adds horizontal space around the icons */
+  color: #36454f; /* Consistent with the overall design color scheme */
+  text-decoration: none; /* Removes underline from links */
+  display: flex; /* Ensures these elements are also flex containers */
+  justify-content: center; /* Centers the content (icon) within */
+  align-items: center; /* Vertically centers the icon */
+}
+
+.fa-user-pen {
+  color: #ffb300; /* Custom color for the edit icon */
+}
+
+.fa-user-xmark {
+  color: #7B003A; /* Custom color for the delete icon */
+}
+
+.upcoming-events {
+	background-color: #ffffff; /* White background */
+	padding: 20px 30px;
+	box-sizing: border-box;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+	max-width: 400px; /* Maximum width */
+	margin-top: 40px; /* Centering */
+	width: calc(34% - 10px);
+	align-self: flex-start;
+}
+
+.upcoming-events h2 {
+	color: #7B003A; /* Dark grey color, consistent with body text color */
+	font-size: 1.75em;
+	text-align: left;
+	margin-top: 0;
+}

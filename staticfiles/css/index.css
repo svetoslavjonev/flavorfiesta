@@ -1,0 +1,34 @@
+.header {
+	text-align: center;
+	padding: 20px 0;
+	background-color: #36454F;
+	background-image: url("header.jpg");
+	background-size: cover;
+	background-position: center;
+}
+
+.landing-logo img {
+	max-height: 150px;
+	width: auto;
+}
+
+.header h2 {
+	color: #ffffff;
+	font-style: italic;
+	font-size: 0.8em;
+	font-weight: 400;
+}
+
+.header p {
+	color: #ffffff;
+	font-style: oblique;
+	font-size: 0.8em;
+	font-weight: 400;
+}
+
+p.index-par {
+	text-align: left;
+	line-height: 1.5;
+	font-size: 1.05em;
+	padding: 0 25%;
+}

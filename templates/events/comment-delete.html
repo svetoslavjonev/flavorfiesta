@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+			<section class="description">
+				<h2>Delete the following comment?</h2>
+				<h6>{{ object.content }}</h6>
+				<form class="profile-form" action="{% url 'comment-delete' pk=object.pk %}" method="POST">
+					{{form.as_p}}
+					{% csrf_token %}
+					<button type="submit">Delete Comment</button>
+				</form>
+			</section>
+	</main>
+
+{% endblock %}

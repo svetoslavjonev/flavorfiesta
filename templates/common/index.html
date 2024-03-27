@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+	<header class="header" style="background-image: url({% static 'images/header.jpg' %});">
+		<div class="landing-logo">
+			<img src="{% static 'images/image.png' %}" alt="Landing Logo">
+		</div>
+		<h2>your ultimate culinary experience...</h2>
+	</header>
+
+	<main>
+		<section class="description">
+			<h1>Welcome to  <em>flavor fiesta</em>!</h1>
+			<p class="index-par">Flavor Fiesta offers engaging cooking classes and food tasting events for culinary enthusiasts. Our
+				expert-led classes explore a range of cuisines, teaching new techniques and flavor combinations.
+			</p>
+			<p class="index-par">Our food tasting events are culinary adventures, presenting a selection of dishes with unique flavors,
+				perfect for those eager to explore diverse culinary traditions and expand their palate.
+			</p>
+			<p class="index-par">Flavor Fiesta is more than cooking and tasting. It's about community, shared experiences, and creating
+				lasting memories.
+			</p>
+	
+		</section>
+	</main>
+	 
+{% endblock %}

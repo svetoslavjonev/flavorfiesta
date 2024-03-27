@@ -1,0 +1,28 @@
+{% load static %}
+
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>flavor fiesta</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.png' %}">
+</head>
+
+<body class="content">
+
+	{% include 'partials/nav.html' %}
+
+	<!-- Page-specific content will go here -->
+	{% block content %}
+	{% endblock %}
+
+
+	{% include 'partials/footer.html' %}
+
+</body>
+
+</html>
