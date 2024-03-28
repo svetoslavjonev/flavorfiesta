@@ -1,3 +1,9 @@
-1. Edit and Delete Occasion Functionality
-2. Event, Chef, Venue Details - add the next 5 occasions
-3. 
+1. Edit and Delete Occasion - implement functionality - views and templates
+1.1. fix the form not loading for the current month
+2. Event, Chef, Venue Details - add the next 5 occasions for the respective item
+3. Implement booking funcionatility/ticket model with Paypal Integration
+4. User Details - add the next 5 booking for the user
+5. Implement API Views
+6. Write tests
+7. Create resposive web design for the non-responsive pages
+8. Open AI Integration

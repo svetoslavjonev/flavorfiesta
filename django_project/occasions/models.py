@@ -75,6 +75,3 @@ class Seat(models.Model):
 		default=False,
 		null=False,
 		blank=False,)
-
-	class Meta:
-		unique_together = ('occasion', 'seat_number')

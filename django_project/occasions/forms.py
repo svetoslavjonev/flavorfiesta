@@ -2,9 +2,8 @@ from django import forms
 import datetime
 from django_project.occasions.models import Occasion, Seat
 
+class OccasionForm(forms.ModelForm):
 
-class OccasionCreateForm(forms.ModelForm):
-	
 	class Meta:
 		model = Occasion
 		fields = '__all__' 
@@ -18,6 +17,9 @@ class OccasionCreateForm(forms.ModelForm):
 				'placeholder': 'DD-MM-YYYY HH:MM',
 			}),
 		}
+
+
+class OccasionCreateForm(OccasionForm):
 
 	def save(self, commit=True):
 		occasion = super().save(commit=commit)
@@ -33,6 +35,9 @@ class OccasionCreateForm(forms.ModelForm):
 			occasion.save()
 
 		return occasion
+
+class OccasionEditForm(OccasionForm):
+	pass
 
 
 class MonthYearForm(forms.Form):

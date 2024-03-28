@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+	<main>
+			<section class="description">
+				<h2>Are you sure you want to delete</h2>
+				<h6>{{ occasion.event.name }} - {{ occasion.chef.name }} - {{ occasion.venue.name }} - {{ occasion.start_time|date:"d M H:i" }} - {{ occasion.end_time|date:"d M H:i" }}</h6>
+				<form class="profile-form" action="{% url 'occasion-delete' pk=occasion.pk %}" method="POST">
+					{{form.as_p}}
+					{% csrf_token %}
+					<button type="submit">Delete Occasion</button>
+				</form>
+			</section>
+	</main>
+
+{% endblock %}

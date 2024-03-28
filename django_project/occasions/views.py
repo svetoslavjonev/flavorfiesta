@@ -5,7 +5,7 @@ from django.contrib.auth import mixins as auth_mixin
 import datetime
 
 from django_project.occasions.models import Occasion
-from django_project.occasions.forms import OccasionCreateForm, MonthYearForm
+from django_project.occasions.forms import OccasionCreateForm, MonthYearForm, OccasionEditForm
 
 
 class OccasionCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.CreateView):
@@ -37,3 +37,20 @@ class OccasionByMonthYearView(auth_mixin.LoginRequiredMixin, views.FormView):
 		if 'occasions' not in context:
 			context['occasions'] = Occasion.objects.none()
 		return context
+
+class OccasionEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
+	permission_required = 'occasions.change_occasion'
+	model = Occasion
+	template_name = 'occasions/occasion-edit.html'
+	form_class = OccasionEditForm
+
+	def get_success_url(self):
+		return reverse_lazy('occasion-dashboard')
+
+class OccasionDeleteView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.DeleteView):
+	permission_required = 'occasions.delete_occasion'
+	model = Occasion
+	template_name = 'occasions/occasion-delete.html'
+
+	def get_success_url(self):
+		return reverse_lazy('occasion-dashboard')
