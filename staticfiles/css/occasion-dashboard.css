@@ -163,6 +163,7 @@
 	align-items: right;
 	justify-content: center;
 	width: 15%;
+	margin-right: 10px;
 }
 
 .actions-list {
@@ -203,4 +204,13 @@
 .book-now:hover {
 	background-color: #7B003A;
 	color: #ffffff;
+}
+
+.edit-occasion, .delete-occasion {
+	font-size: 20px;
+	margin: 0 5px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: end;
 }

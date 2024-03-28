@@ -44,6 +44,10 @@
 									<li class="action-item book-now" onclick="location.href='#'">Book Now</li>
 								</ul>
 							</div>
+							{% if request.user.is_staff %}
+							<a class="edit-occasion" href="#"><i class="fa-solid fa-pencil"></i></a>
+							<a class="delete-occasion" href="#"><i class="fa-solid fa-trash-can"></i></a>
+							{% endif %}
 						</div>
 						{% empty %}
 						<p>At this moment, our calendar does not feature events for the selected period. We invite you to revisit as we continuously update our schedule or check another period.</p>
