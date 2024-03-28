@@ -38,7 +38,7 @@
 
 		{% if request.user.is_authenticated %}
 		<li>
-			<a href="#">Schedule</a>
+			<a href="{% url 'occasion-dashboard' %}">Schedule</a>
 		</li>
 		<li>
 		  <a href="{% url 'event-dashboard' %}">Events</a>

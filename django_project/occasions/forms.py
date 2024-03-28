@@ -1,4 +1,5 @@
 from django import forms
+import datetime
 from django_project.occasions.models import Occasion, Seat
 
 
@@ -32,3 +33,15 @@ class OccasionCreateForm(forms.ModelForm):
 			occasion.save()
 
 		return occasion
+
+
+class MonthYearForm(forms.Form):
+	month_year = forms.ChoiceField(label="")
+
+	def __init__(self, *args, **kwargs):
+		super(MonthYearForm, self).__init__(*args, **kwargs)
+		choices = []
+		for i in range(12):
+			month_year = (datetime.datetime.now() + datetime.timedelta(days=i*30)).strftime('%B, %Y')
+			choices.append((month_year, month_year))
+		self.fields['month_year'].choices = choices

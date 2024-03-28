@@ -1,0 +1,98 @@
+.occasion-container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.occasion-form {
+	display: flex;
+	justify-content: left;
+	background-color: transparent;
+	gap: 10px;
+}
+
+.occasion-form select {
+	width: 100%;
+	padding: 15px;
+	border: 2px solid #7B003A;
+	display: block;
+	font-size: 1.25em;
+	box-sizing: border-box;
+	border-radius: 4px;
+	cursor: pointer; /* Show a pointer cursor to indicate this is a dropdown */
+	font-family: 'Hanken Grotesk', sans-serif;
+}
+
+
+.occasion-form select option {
+	padding: 30px;
+	border: 2px solid #7B003A;
+	border-radius: 0px;
+}
+
+
+/* Timetable Styling */
+.occasions-timetable {
+	margin-top: 20px;
+}
+
+.occasion-entry {
+	background-color: #fff;
+	padding: 25px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.occasion-date-weekday {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+	gap: 5px;
+}
+
+.date {
+	color: #7B003A;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.weekday {
+	color: #36454f;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.occasion-info, .occasion-actions {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: left;
+	gap: 5px;
+}
+
+
+
+.event-name, .chef-name, .venue-name {
+	color: #36454f;
+}
+
+.see-more-btn, .buy-tickets-btn {
+	padding: 10px 20px;
+	color: #ffffff;
+	background-color: #007bff; /* Sample action button color */
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.see-more-btn:hover, .buy-tickets-btn:hover {
+	background-color: #0056b3;
+}

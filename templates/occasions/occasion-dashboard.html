@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load static %}
+{% block content %}
+		<main>
+			<div class="occasion-container">
+				<form class="occasion-form" id="occasionForm" method="POST" enctype="multipart/form-data">
+					{{ form.as_p }}
+					{% csrf_token %}
+				</form>
+			
+				<section>
+					<div class="occasions-timetable">
+						{% for occasion in occasions %}
+						<div class="occasion-entry">
+							<div class="occasion-date-weekday">
+								<span class="date">{{ occasion.start_time|date:"d" }}</span>
+								<span class="weekday">{{ occasion.start_time|date:"l" }}</span>
+							</div>
+							<div class="occasion-info">
+								<span class="event-name">{{ occasion.event.name }}</span>
+								<span class="chef-name">{{ occasion.chef.name }}</span>
+								<span class="venue-name">{{ occasion.venue.name }}</span>
+							</div>
+							<div class="occasion-actions">
+								<button type="button" class="see-more-btn" onclick="location.href='#'">See More</button>
+								<button type="button" class="buy-tickets-btn" onclick="location.href='#'">Buy Tickets</button>
+							</div>
+						</div>
+						{% empty %}
+						<p>At this moment, our calendar does not feature events for the selected period. We invite you to revisit as we continuously update our schedule or check another period.</p>
+						{% endfor %}
+					</div>
+				</section>
+			<div class="occasion-container">
+
+
+				<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					// Attach an event listener to each form input
+					document.querySelectorAll('.occasion-form input, .occasion-form select').forEach(function(input) {
+						input.addEventListener('change', function() {
+							// Submit the form when any input value changes
+							document.getElementById('occasionForm').submit();
+						});
+					});
+				});
+				</script>
+		</main>
+{% endblock %}

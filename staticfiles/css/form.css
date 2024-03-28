@@ -29,6 +29,7 @@
 	display: block;
 	font-size: 1em; /* Readable text size */
 	box-sizing: border-box; /* Include padding and border in the element's total width */
+	font-family: 'Hanken Grotesk', sans-serif;
 }
 
 /* Styling the submit button */
@@ -51,7 +52,7 @@ button[type="submit"] {
 /* Button hover effect */
 button[type="submit"]:hover {
 	background-color: #ffb300;
-	transition: background-color 0.7s ease;
+	transition: background-color 0.75s ease;
 }
 
 /* Hiding default form field help text if any */
