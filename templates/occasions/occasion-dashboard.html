@@ -3,11 +3,15 @@
 {% load static %}
 {% block content %}
 		<main>
+			<script src={% static 'js/occasion.js' %}></script>
 			<div class="occasion-container">
-				<form class="occasion-form" id="occasionForm" method="POST" enctype="multipart/form-data">
-					{{ form.as_p }}
-					{% csrf_token %}
-				</form>
+				<div class="occasion-form-holder">
+					<i class="fa-solid fa-calendar-days"></i>
+					<form class="occasion-form" id="occasionForm" method="POST" enctype="multipart/form-data">
+						{{ form.as_p }}
+						{% csrf_token %}
+					</form>
+				</div>	
 			
 				<section>
 					<div class="occasions-timetable">
@@ -18,13 +22,27 @@
 								<span class="weekday">{{ occasion.start_time|date:"l" }}</span>
 							</div>
 							<div class="occasion-info">
-								<span class="event-name">{{ occasion.event.name }}</span>
-								<span class="chef-name">{{ occasion.chef.name }}</span>
-								<span class="venue-name">{{ occasion.venue.name }}</span>
+								<span class="occasion-time">{{ occasion.start_time|date:"H:i" }} - {{ occasion.end_time|date:"H:i" }}</span>
+								<span class="occasion-name">
+									 <a href="{% url 'event-details' pk=occasion.event.pk slug=occasion.event.slug %}">{{ occasion.event.name }}</a>
+								</span>
+								<span class="occasion-chef">
+									<a href="{% url 'chef-details' pk=occasion.chef.pk slug=occasion.chef.slug %}">{{ occasion.chef.name }}</a>
+								</span>
+							</div>
+							<div class="occasion-venue">
+								<span class="occasion-venue-name">
+									 <a href="{% url 'venue-details' pk=occasion.venue.pk slug=occasion.venue.slug %}">{{ occasion.venue.name }}</a>
+								</span>
+								<span class="occasion-location">
+									{{ occasion.venue.location }}
+								</span>
 							</div>
 							<div class="occasion-actions">
-								<button type="button" class="see-more-btn" onclick="location.href='#'">See More</button>
-								<button type="button" class="buy-tickets-btn" onclick="location.href='#'">Buy Tickets</button>
+								<ul class="actions-list">
+									<li class="action-item see-more" onclick="location.href='{% url 'event-details' pk=occasion.event.pk slug=occasion.event.slug %}'">See More</li>
+									<li class="action-item book-now" onclick="location.href='#'">Book Now</li>
+								</ul>
 							</div>
 						</div>
 						{% empty %}
@@ -32,19 +50,6 @@
 						{% endfor %}
 					</div>
 				</section>
-			<div class="occasion-container">
-
-
-				<script>
-				document.addEventListener('DOMContentLoaded', function() {
-					// Attach an event listener to each form input
-					document.querySelectorAll('.occasion-form input, .occasion-form select').forEach(function(input) {
-						input.addEventListener('change', function() {
-							// Submit the form when any input value changes
-							document.getElementById('occasionForm').submit();
-						});
-					});
-				});
-				</script>
+			</div>
 		</main>
 {% endblock %}

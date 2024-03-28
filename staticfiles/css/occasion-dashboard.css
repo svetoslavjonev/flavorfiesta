@@ -6,6 +6,19 @@
 	flex-direction: column;
 }
 
+.occasion-form-holder {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	gap: 15px;
+}
+
+.occasion-form-holder .fa-calendar-days {
+	font-size: 70px;
+	padding: 6px;
+	color: #7B003A;
+}
+
 .occasion-form {
 	display: flex;
 	justify-content: left;
@@ -13,7 +26,7 @@
 	gap: 10px;
 }
 
-.occasion-form select {
+.occasion-form p select {
 	width: 100%;
 	padding: 15px;
 	border: 2px solid #7B003A;
@@ -25,11 +38,11 @@
 	font-family: 'Hanken Grotesk', sans-serif;
 }
 
-
-.occasion-form select option {
-	padding: 30px;
+.occasion-form p option {
+	padding: 15px;
 	border: 2px solid #7B003A;
-	border-radius: 0px;
+	font-family: 'Hanken Grotesk', sans-serif;
+	backgrond-color: #ffffff;
 }
 
 
@@ -41,9 +54,10 @@
 .occasion-entry {
 	background-color: #fff;
 	padding: 25px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	display: flex;
-	justify-content: space-between;
+	flex-direction: row;
+	justify-content: flex-grow;
 	align-items: center;
 	margin-bottom: 10px;
 }
@@ -54,6 +68,7 @@
 	align-items: left;
 	justify-content: left;
 	gap: 5px;
+	width: 10%;
 }
 
 .date {
@@ -69,30 +84,123 @@
 	text-transform: uppercase;
 }
 
-.occasion-info, .occasion-actions {
+.occasion-info {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: left;
 	justify-content: left;
+	gap: 5px;
+	width: 35%;
+	margin-right: 50px;
+}
+
+.occasion-time {
+	color: #36454f;
+	font-size: 1.1em;
+}
+
+.occasion-name {
+	color: #7B003A;
+	font-size: 1.75em;
+	font-weight: bold;
+}
+
+.occasion-name a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.occasion-name a:hover {
+	text-decoration: underline;
+}
+
+.occasion-chef {
+	color: #36454f;
+	font-size: 1.1em;
+}
+
+.occasion-chef a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.occasion-chef a:hover {
+	text-decoration: underline;
+}
+
+
+.occasion-venue {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+	width: 35%;
 	gap: 5px;
 }
 
-
-
-.event-name, .chef-name, .venue-name {
+.occasion-venue-name {
 	color: #36454f;
+	font-size: 1.1em;
 }
 
-.see-more-btn, .buy-tickets-btn {
+.occasion-location {
+	color: #36454f;
+	font-size: 1.1em;
+}
+
+.occasion-venue-name a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.occasion-venue-name a:hover{
+	text-decoration: underline;
+}
+
+.occasion-actions {
+	display: flex;
+	flex-direction: column;
+	align-items: right;
+	justify-content: center;
+	width: 15%;
+}
+
+.actions-list {
+	list-style: none; /* Remove default list styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.see-more {
 	padding: 10px 20px;
+	color: #36454f;
+	background-color: #ffffff; /* Sample action button color */
+	border: 1px solid #36454f;
+	cursor: pointer;
+	transition: all 0.75s ease;
+	text-align: center; /* Center the text within the li element */
+}
+
+
+.see-more:hover {
+	background-color: #36454f;
 	color: #ffffff;
-	background-color: #007bff; /* Sample action button color */
-	border-radius: 5px;
+}
+
+.book-now {
+	padding: 10px 20px;
+	color: 	#7b003a;
+	background-color: 	#cccccc; /* Sample action button color */
 	border: none;
 	cursor: pointer;
-	transition: all 0.3s ease;
+	transition: all 0.75s ease;
+	text-align: center; /* Center the text within the li element */
 }
 
-.see-more-btn:hover, .buy-tickets-btn:hover {
-	background-color: #0056b3;
+.book-now:hover {
+	background-color: #7B003A;
+	color: #ffffff;
 }
