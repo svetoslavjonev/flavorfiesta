@@ -50,3 +50,5 @@ class MonthYearForm(forms.Form):
 			month_year = (datetime.datetime.now() + datetime.timedelta(days=i*30)).strftime('%B, %Y')
 			choices.append((month_year, month_year))
 		self.fields['month_year'].choices = choices
+		# Set the default value to the first choice
+		self.fields['month_year'].initial = choices[0][0] if choices else None

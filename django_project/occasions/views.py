@@ -33,9 +33,18 @@ class OccasionByMonthYearView(auth_mixin.LoginRequiredMixin, views.FormView):
 		return self.render_to_response(context)
 
 	def get_context_data(self, **kwargs):
-		context = super().get_context_data(**kwargs)
+		context = super(OccasionByMonthYearView, self).get_context_data(**kwargs)
 		if 'occasions' not in context:
-			context['occasions'] = Occasion.objects.none()
+			# This is the initial load; no form submission has happened yet.
+			# Fetch occasions for the default month and year.
+			default_month_year = self.form_class().fields['month_year'].initial
+			month, year = default_month_year.split(', ')
+			year = int(year)
+			month = datetime.datetime.strptime(month, "%B").month
+			context['occasions'] = Occasion.objects.filter(
+				start_time__year=year,
+				start_time__month=month
+			).order_by('start_time')
 		return context
 
 class OccasionEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
