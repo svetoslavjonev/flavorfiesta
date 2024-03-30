@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse, reverse_lazy
+from django.utils import timezone
 from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixin
 from django.shortcuts import get_object_or_404
 
 from django_project.events.models import Event, EventComment
+from django_project.occasions.models import Occasion
 from django_project.events.forms import EventForm, EventCommentForm
 
 
@@ -22,12 +24,18 @@ class EventDetailsView(auth_mixin.LoginRequiredMixin, views.TemplateView):
 	template_name = 'events/event-details.html'
 
 	def get(self, request, pk, slug):
-		event = Event.objects.filter(pk=pk, slug=slug).get()
+		event = Event.objects.get(pk=pk, slug=slug)
+		next_occasions = Occasion.objects.filter(
+			event=event,
+			start_time__gte=timezone.now()  # Filter for future occasions
+		).order_by('start_time')[:5]  # Get the next 5 occasions
+
 		comment_form = EventCommentForm()
-		comments = EventComment.objects.filter(event_id=pk).order_by('-created_at')
-		
+		comments = EventComment.objects.filter(event=event).order_by('-created_at')
+
 		context = {
 			'event': event,
+			'next_occasions': next_occasions,
 			'comment_form': comment_form,
 			'comments': comments,
 		}

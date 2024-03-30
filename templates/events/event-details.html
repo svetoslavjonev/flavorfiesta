@@ -71,11 +71,20 @@
 			</div>
 			
 			<div class="next-events">
-				<h2> Upcoming events</h2>
-				<p> Apologies, but we currently have no scheduled events for {{event.name}}. </p>
-			</div>
-		
-
+			<h2>Upcoming Events</h2>
+			{% if next_occasions.exists %}
+				<ul>
+					{% for occasion in next_occasions %}
+						<li>
+							{{ occasion.start_time|date:"F d, Y H:i" }} - 
+							<strong>{{ occasion.venue.name }}</strong>
+						</li>
+					{% endfor %}
+				</ul>
+			{% else %}
+				<p>Apologies, but we currently have no scheduled events for {{ event.name }}.</p>
+			{% endif %}
+		</div>
 
 		</div>
 	</main>
