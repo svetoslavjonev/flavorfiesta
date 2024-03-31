@@ -73,6 +73,19 @@ button[type="submit"]:hover {
 	font-family: 'Hanken Grotesk', sans-serif;
 }
 
+.profile-form p input[type="datetime-local"] {
+	width: 100%;
+	padding: 15px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	display: block;
+	font-size: 1em;
+	box-sizing: border-box;
+	font-family: 'Hanken Grotesk', sans-serif;
+	background-color: #f0f0f0; /* Light gray background */
+	color: #333; /* Dark text for contrast */
+}
+
 /* Styling for the dropdown/select element */
 .profile-form p select {
 	width: 100%;
