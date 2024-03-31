@@ -26,9 +26,25 @@
 	font-weight: 400;
 }
 
-p.index-par {
+.index-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 800px;
+  padding: 0 2%;
+  margin: 0 auto;
+}
+
+.index-description h1 {
+	text-align: center;
+	color: #7B003A;
+	font-size: 3em;
+}
+
+.index-description p {
 	text-align: left;
-	line-height: 1.5;
+	margin-top: 0px;
+	margin-bottom: 10px;
+    line-height: 1.5;
 	font-size: 1.05em;
-	padding: 0 25%;
 }
