@@ -1,5 +1,7 @@
-from django import forms
 import datetime
+from dateutil.relativedelta import relativedelta
+
+from django import forms
 from django_project.occasions.models import Occasion, Seat
 
 class OccasionForm(forms.ModelForm):
@@ -46,9 +48,11 @@ class MonthYearForm(forms.Form):
 	def __init__(self, *args, **kwargs):
 		super(MonthYearForm, self).__init__(*args, **kwargs)
 		choices = []
+		# Adjust this range to control the number of months generated
 		for i in range(12):
-			month_year = (datetime.datetime.now() + datetime.timedelta(days=i*30)).strftime('%B, %Y')
+			date = datetime.datetime.now() + relativedelta(months=i)
+			month_year = date.strftime('%B, %Y')
 			choices.append((month_year, month_year))
 		self.fields['month_year'].choices = choices
-		# Set the default value to the first choice
+		# Set the default value to the current month and year
 		self.fields['month_year'].initial = choices[0][0] if choices else None
