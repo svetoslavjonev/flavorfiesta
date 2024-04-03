@@ -29,11 +29,15 @@
 				<div class="comments-container">
 					<div class="comments-header">
 						<h2>
+							
 							{% if comments.count == 0 %}
+							<i class="fa-regular fa-comment"></i>
 								No comments yet.
 							{% elif comments.count == 1 %}
+							<i class="fa-regular fa-comment-dots"></i>
 								1 Comment
 							{% else %}
+							<i class="fa-regular fa-comment-dots"></i>
 								{{ comments.count }} Comments
 							{% endif %}
 						</h2>
