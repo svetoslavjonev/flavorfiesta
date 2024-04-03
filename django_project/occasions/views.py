@@ -24,12 +24,20 @@ class OccasionByMonthYearView(auth_mixin.LoginRequiredMixin, views.FormView):
 		month_year = form.cleaned_data['month_year']
 		month, year = month_year.split(', ')
 		year = int(year)
-		
+
 		month = datetime.datetime.strptime(month, "%B").month
-		context['occasions'] = Occasion.objects.filter(
-			start_time__year=year,
-			start_time__month=month
-		).order_by('start_time')
+		today = datetime.datetime.today()
+		if int(year) == today.year and month == today.month:
+			context['occasions'] = Occasion.objects.filter(
+				start_time__year=year,
+				start_time__month=month,
+				start_time__gte=datetime.datetime.now()  # Compare with current datetime to filter out past events
+			).order_by('start_time')
+		else:
+			context['occasions'] = Occasion.objects.filter(
+				start_time__year=year,
+				start_time__month=month
+			).order_by('start_time')
 		return self.render_to_response(context)
 
 	def get_context_data(self, **kwargs):
@@ -41,10 +49,18 @@ class OccasionByMonthYearView(auth_mixin.LoginRequiredMixin, views.FormView):
 			month, year = default_month_year.split(', ')
 			year = int(year)
 			month = datetime.datetime.strptime(month, "%B").month
-			context['occasions'] = Occasion.objects.filter(
-				start_time__year=year,
-				start_time__month=month
-			).order_by('start_time')
+			today = datetime.datetime.today()
+			if int(year) == today.year and month == today.month:
+				context['occasions'] = Occasion.objects.filter(
+					start_time__year=year,
+					start_time__month=month,
+					start_time__gte=datetime.datetime.now()  # Compare with current datetime to filter out past events
+				).order_by('start_time')
+			else:
+				context['occasions'] = Occasion.objects.filter(
+					start_time__year=year,
+					start_time__month=month
+				).order_by('start_time')
 		return context
 
 class OccasionEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
