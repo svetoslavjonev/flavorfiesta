@@ -1,7 +1,6 @@
 from django.db import models
 from django.core.validators import MinValueValidator
 from django_project.occasions.models import Occasion
-import uuid
 
 class Ticket(models.Model):
 	occasion = models.ForeignKey(
