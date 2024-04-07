@@ -25,11 +25,6 @@ class Ticket(models.Model):
 		null=False,
 		blank=False,
 	) 
-	
-	ticket_number = models.UUIDField(
-		default=uuid.uuid4,
-		editable=False,
-		unique=True)
 
 	def __str__(self):
-		return f"Occasion: {self.occasion.id}, Type: {self.ticket_type}, Price: {self.price}, Number: {self.ticket_number}"
+		return f"Occasion: {self.occasion}, Type: {self.ticket_type}, Price: {self.price}"

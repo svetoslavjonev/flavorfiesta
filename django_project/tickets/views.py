@@ -1,3 +1,11 @@
-from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views import generic as views
+from django.contrib.auth import mixins as auth_mixin
+from django_project.tickets.forms import TicketForm
 
-# Create your views here.
+
+class TicketCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.CreateView):
+	permission_required = 'tickets.add_ticket'
+	form_class = TicketForm
+	template_name = 'tickets/ticket-create.html'
+	success_url = reverse_lazy('index')
