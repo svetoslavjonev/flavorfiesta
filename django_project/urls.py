@@ -12,5 +12,6 @@ urlpatterns = [
 	path('venues/', include ('django_project.venues.urls')),
 	path('occasions/', include ('django_project.occasions.urls')),
 	path('bookings/', include ('django_project.bookings.urls')),
-	path('tickets/', include ('django_project.tickets.urls'))
+	path('tickets/', include ('django_project.tickets.urls')),
+	path('api/', include ('django_project.api.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
