@@ -1,0 +1,17 @@
+<!-- templates/bookings/booking_detail.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="description">
+	<h2>Booking Details</h2>
+	<h3>{{ booking.occasion.event.name }}</h3>
+	<h6>{{ booking.occasion.chef.name }}, {{ booking.occasion.venue.name }}, {{ booking.occasion.start_time|date:"l, F j, Y" }}, {{booking.occasion.start_time|date:"H:i" }} - {{ booking.occasion.end_time|date:"H:i" }}</h6>
+	<h6>Booked at: {{ booking.booking_time }}</h6>
+	<h6>Number of Tickets: {{ booking.number_of_tickets }}</h6>
+	<h6>Total Price: €{{ booking.total_price }}</h6>
+	<h6>Reserved Seat Number(s): {{ booking.reserved_seats }}</h6>
+</section>
+
+{% endblock %}

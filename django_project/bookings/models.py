@@ -55,4 +55,4 @@ class Booking(models.Model):
 	)
 
 	def __str__(self):
-		return f"{self.user.username} - {self.occasion} ({self.number_of_seats} seats, {self.status})"
+		return f"{self.user.username} - {self.occasion} ({self.number_of_tickets} seats, {self.is_completed})"

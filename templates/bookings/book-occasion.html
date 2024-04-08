@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<section class="description">
+	{% if tickets|length == 0 %}
+	<h2>Sorry, there are no tickets on sale for this event yet.</h2>
+	{% elif available_seats_count == 0 %}
+	<h2>Sold Out</h2>
+	{% else %}
+	<h2>{{ occasion.event.name }}</h2>
+	<h6>{{ occasion.chef.name }}, {{ occasion.venue.name }}, {{ occasion.start_time|date:"l, F j, Y" }}, {{occasion.start_time|date:"H:i" }} - {{ occasion.end_time|date:"H:i" }}</h6>
+	<h3>Available Seats: {{ available_seats_count }}</h3>
+
+
+	<form class="profile-form" action="{% url 'book-occasion' occasion_id=occasion.id %}" method="POST" enctype="multipart/form-data">
+		<div>
+			<h6>Tickets and Prices</h6>
+			<ul>
+				{% for ticket in tickets %}
+				<li>
+					{{ ticket.ticket_type }} Ticket: &#8364; {{ ticket.price }}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="submit">Book Now</button>
+	</form>
+	{% endif %}
+</section>	
+{% endblock %}
