@@ -214,3 +214,11 @@
 	justify-content: center;
 	align-items: end;
 }
+
+.sold-out {
+	padding: 10px 20px;
+	color: #ffffff;
+	background-color: #7B003A;; /* Sample action button color */
+	border: none;
+	text-align: center; /* Center the text within the li element */
+}

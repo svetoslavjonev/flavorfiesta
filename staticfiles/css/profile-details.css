@@ -12,6 +12,7 @@
 	max-width: 800px; /* Maximum width */
 	margin-top: 40px; /* Centering */
 	width: calc(66% - 10px);
+	align-self: flex-start;
 }
 
 .profile-details h2 {
@@ -85,8 +86,51 @@
 }
 
 .upcoming-events h2 {
-	color: #7B003A; /* Dark grey color, consistent with body text color */
+	color: #7B003A; 
 	font-size: 1.75em;
 	text-align: left;
 	margin-top: 0;
+}
+
+.upcoming-events h4 {
+	color: #7B003A;
+	font-size: 1.1em;
+	text-align: left;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.upcoming-events p {
+	display: flex; /* Enable Flexbox for each paragraph */
+	justify-content: space-between; /* Align label on the left and data on the right */
+	line-height: 1.5;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 1.1em;
+	color: #36454f; /* Dark grey color */
+}
+
+hr.solid {
+  border-top: 1px solid #7B003A;
+}
+
+.upcoming-event-action {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.upcoming-event-action-item {
+	padding: 5px 15px;
+	color: 	#7b003a;
+	background-color: 	#cccccc; /* Sample action button color */
+	border: none;
+	cursor: pointer;
+	transition: all 0.75s ease;
+	text-align: center; /* Center the text within the li element */
+	max-width: 150px;
+}
+
+.upcoming-event-action-item:hover {
+	background-color: #7B003A;
+	color: #ffffff;
 }

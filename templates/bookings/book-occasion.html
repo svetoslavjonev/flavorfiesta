@@ -4,9 +4,9 @@
 
 <section class="description">
 	{% if tickets|length == 0 %}
-	<h2>Sorry, there are no tickets on sale for this event yet.</h2>
+	<h3>Sorry, there are no tickets on sale for this event yet.</h3>
 	{% elif available_seats_count == 0 %}
-	<h2>Sold Out</h2>
+	<h3>Sold Out</h3>
 	{% else %}
 	<h2>{{ occasion.event.name }}</h2>
 	<h6>{{ occasion.chef.name }}, {{ occasion.venue.name }}, {{ occasion.start_time|date:"l, F j, Y" }}, {{occasion.start_time|date:"H:i" }} - {{ occasion.end_time|date:"H:i" }}</h6>

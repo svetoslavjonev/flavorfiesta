@@ -1,7 +1,11 @@
 {% extends 'base.html' %}
+
 {% load static %}
-{% load static %}
+
+{% load filters %}
+
 {% block content %}
+
 		<main>
 			<script src={% static 'js/occasion.js' %}></script>
 			<div class="occasion-container">
@@ -41,7 +45,11 @@
 							<div class="occasion-actions">
 								<ul class="actions-list">
 									<li class="action-item see-more" onclick="location.href='{% url 'event-details' pk=occasion.event.pk slug=occasion.event.slug %}'">See More</li>
-									<li class="action-item book-now" onclick="location.href='{% url 'book-occasion' occasion_id=occasion.id %}'">Book Now</li>
+									{% if occasion|has_available_seats %}
+										<li class="action-item book-now" onclick="window.location.href='{% url 'book-occasion' occasion_id=occasion.id %}';">Book Now</li>
+									{% else %}
+										<li class="action-item sold-out">Sold Out</li>
+									{% endif %}
 								</ul>
 							</div>
 							{% if request.user.is_staff %}

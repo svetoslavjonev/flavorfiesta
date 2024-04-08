@@ -138,10 +138,19 @@ hr.solid {
 	cursor: pointer;
 	transition: all 0.75s ease;
 	text-align: center; /* Center the text within the li element */
-	max-width: 100px;
+	min-width: 80px;
 }
 
 .next-event-action-item:hover {
 	background-color: #7B003A;
 	color: #ffffff;
+}
+
+.next-event-sold-out {
+	padding: 5px 15px;
+	color: 	#ffffff;
+	background-color: #7b003a; /* Sample action button color */
+	border: none;
+	text-align: center; /* Center the text within the li element */
+	min-width: 80px;
 }

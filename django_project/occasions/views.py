@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect
+from django.db.models import Exists, OuterRef
 from django.urls import reverse, reverse_lazy
 from django.views import generic as views
 from django.contrib.auth import mixins as auth_mixin
 import datetime
 
-from django_project.occasions.models import Occasion
+from django_project.occasions.models import Occasion, Seat
 from django_project.occasions.forms import OccasionCreateForm, MonthYearForm, OccasionEditForm
 
 
@@ -59,6 +60,9 @@ class OccasionByMonthYearView(auth_mixin.LoginRequiredMixin, views.FormView):
 					start_time__year=year,
 					start_time__month=month
 				).order_by('start_time')
+			occasions = Occasion.objects.annotate(
+				has_available_seats=Exists(Seat.objects.filter(occasion_id=OuterRef('pk'), is_booked=False))
+			)
 		return context
 
 class OccasionEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):

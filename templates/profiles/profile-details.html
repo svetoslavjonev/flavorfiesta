@@ -43,8 +43,25 @@
 					</div>
 			</div>
 			<div class="upcoming-events">
-				<h2> Your upcoming events</h2>
-				<p> Sorry! You have no upcoming events.</p>
+				<h2>Your Upcoming Events</h2>
+				{% if next_bookings.exists %}
+					{% for booking in next_bookings %}
+						<div class="upcoming-event">
+							<hr class="solid">
+							<div class="upcoming-event-time"><p>{{ booking.occasion.start_time|date:"M d, Y" }}  |  {{ booking.occasion.start_time|date:"H:i" }}</p></div>
+							<div class="upcoming-event-name"><h4>{{ booking.occasion.event.name }}</h4></div>
+							<div class="upcoming-event-chef"><p>{{ booking.occasion.chef.name }}</p></div>
+							<div class="upcoming-event-venue"><p>{{ booking.occasion.venue.name }}</p></div>
+							<div class="upcoming-event-action">
+								<ul class="actions-list">
+									<li class="upcoming-event-action-item" onclick="location.href='{% url 'booking-details' pk=booking.pk %}'">View Details</li>
+								</ul>
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					<p>Apologies, you currently have no upcoming events.</p>
+				{% endif %}
 			</div>
 		</div>
 	</main>

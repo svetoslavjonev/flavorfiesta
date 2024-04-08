@@ -86,7 +86,11 @@
 						<div class="next-event-venue"><p>{{ occasion.venue.name }}</p></div>
 						<div class="next-event-action">
 							<ul class="actions-list">
-								<li class="next-event-action-item" onclick="location.href='#'">Book Now</li>
+								{% if occasion|has_available_seats %}
+								<li class="next-event-action-item" onclick="location.href='{% url 'book-occasion' occasion_id=occasion.id %}'">Book Now</li>
+								{% else %}
+								<li class="next-event-sold-out">Sold Out</li>
+								{% endif %}
 							</ul>
 						</div>
 					</div>

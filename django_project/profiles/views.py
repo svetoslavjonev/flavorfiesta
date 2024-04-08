@@ -7,8 +7,10 @@ from django.views import generic as views
 from django import forms
 from django.utils.dateformat import format
 from django.conf import settings
+from django.utils import timezone
 
 from django_project.profiles.forms import UserCreateForm, ProfileEditForm
+from django_project.bookings.models import Booking
 
 UserModel = get_user_model()
 
@@ -58,7 +60,12 @@ class ProfileDetailsView(OwnerRequiredMixin, views.DetailView):
 	
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
+		# Assuming self.object is a User instance. Adjust if necessary.
 		context['is_owner'] = self.request.user == self.object
+		context['next_bookings'] = Booking.objects.filter(
+			user=self.object,
+			occasion__start_time__gte=timezone.now()  # Note the double underscore for accessing related fields.
+		).order_by('occasion__start_time')[:5]  # Adjusted ordering field.
 		return context
 
 
