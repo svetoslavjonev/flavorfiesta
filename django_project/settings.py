@@ -147,4 +147,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = 'profiles.AppUser'
 
+LOGIN_URL = '/profiles/signin-user/'
+
 DATE_INPUT_FORMATS = ('%d/%m/%Y')
