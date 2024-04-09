@@ -11,7 +11,7 @@ from django_project.events.forms import EventForm, EventCommentForm
 
 
 class EventDashboardView(auth_mixin.LoginRequiredMixin, views.TemplateView):
-	login_url = "/profiles/singup-user/"
+	login_url = "/profiles/singin-user/"
 	template_name = 'events/event-dashboard.html'
 	model = Event
 
@@ -22,7 +22,7 @@ class EventDashboardView(auth_mixin.LoginRequiredMixin, views.TemplateView):
 
 
 class EventDetailsView(auth_mixin.LoginRequiredMixin, views.TemplateView):
-	login_url = "/profiles/singup-user/"
+	login_url = "/profiles/singin-user/"
 	template_name = 'events/event-details.html'
 
 	def get(self, request, pk, slug):
@@ -60,7 +60,7 @@ class EventDetailsView(auth_mixin.LoginRequiredMixin, views.TemplateView):
 
 
 class EventCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.CreateView):
-	login_url = "/profiles/singup-user/"
+	login_url = "/profiles/singin-user/"
 	permission_required = 'events.add_event'
 	template_name = 'events/event-create.html'
 	form_class = EventForm
@@ -70,7 +70,7 @@ class EventCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequir
 
 
 class EventEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
-	login_url = "/profiles/singup-user/"
+	login_url = "/profiles/singin-user/"
 	permission_required = 'events.change_event'
 	model = Event
 	template_name = 'events/event-edit.html'
@@ -81,7 +81,7 @@ class EventEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequired
 
 
 class EventDeleteView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.DeleteView):
-	login_url = "/profiles/singup-user/"
+	login_url = "/profiles/singin-user/"
 	permission_required = 'events.delete_event'
 	model = Event
 	template_name = 'events/event-delete.html'
@@ -91,6 +91,7 @@ class EventDeleteView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequir
 
 
 class EditCommentView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
+	login_url = "/profiles/singin-user/"
 	permission_required = 'eventcomment.change_eventcomment'
 	template_name = 'events/comment-edit.html'
 	model = EventComment
@@ -102,6 +103,7 @@ class EditCommentView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequir
 
 
 class DeleteCommentView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.DeleteView):
+	login_url = "/profiles/singin-user/"
 	permission_required = 'eventcomment.delete_eventcomment'
 	template_name = 'events/comment-delete.html'
 	model = EventComment
