@@ -14,7 +14,7 @@ class OccasionCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionReq
 	permission_required = 'occasions.add_occasion'
 	template_name = 'occasions/occasion-create.html'
 	form_class = OccasionCreateForm
-	success_url = reverse_lazy('index')
+	success_url = reverse_lazy('occasion-dashboard')
 
 
 class OccasionByMonthYearView(auth_mixin.LoginRequiredMixin, views.FormView):
