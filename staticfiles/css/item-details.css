@@ -154,3 +154,49 @@ hr.solid {
 	text-align: center; /* Center the text within the li element */
 	min-width: 80px;
 }
+
+@media only screen and (max-width: 768px) {
+	.item-container {
+		flex-direction: column; /* Stack items vertically */
+		align-items: center; /* Center-align the items */
+		gap: 10px; /* Adjust gap between items */
+	}
+
+	.details-comments-wrapper {
+		max-width: 100%; /* Use full width available */
+		width: 100%; /* Override the previous width calculation */
+	}
+
+	.item-details {
+		flex-direction: column; /* Stack details elements vertically */
+		margin-top: 10px; /* Adjust top margin */
+	}
+
+	.item-image, .item-content {
+		width: 100%; /* Use full width for image and content */
+	}
+
+	.item-admin {
+		justify-content: center; /* Center admin actions */
+		margin-top: 20px; /* Adjust top margin for better spacing */
+	}
+
+	.edit-item, .delete-item {
+		margin: 0 5px; /* Adjust spacing around icons */
+	}
+
+	.next-events {
+		max-width: 100%; /* Use the full width available */
+		width: 100%; /* Override the previous width calculation */
+		align-self: center; /* Align to the center */
+	}
+
+	.next-event-action {
+		flex-direction: row; /* Align action items in a row */
+		justify-content: center; /* Center the action items */
+	}
+
+	.next-event-action-item, .next-event-sold-out {
+		margin: 10px 5px; /* Adjust margins for spacing */
+	}
+}

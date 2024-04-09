@@ -53,9 +53,12 @@
 								</ul>
 							</div>
 							{% if request.user.is_staff %}
-							<a class="edit-occasion" href="{% url 'occasion-edit' pk=occasion.pk %}"><i class="fa-solid fa-pencil"></i></a>
-							<a class="delete-occasion" href="{% url 'occasion-delete' pk=occasion.pk %}"><i class="fa-solid fa-trash-can"></i></a>
+							<div class="occasion-admin">
+								<a class="edit-occasion" href="{% url 'occasion-edit' pk=occasion.pk %}"><i class="fa-solid fa-pencil"></i></a>
+								<a class="delete-occasion" href="{% url 'occasion-delete' pk=occasion.pk %}"><i class="fa-solid fa-trash-can"></i></a>
+							</div>
 							{% endif %}
+							
 						</div>
 						{% empty %}
 						<p>At this moment, our calendar does not feature events for the selected period. We invite you to revisit as we continuously update our schedule or check another period.</p>

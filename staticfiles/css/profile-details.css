@@ -134,3 +134,64 @@ hr.solid {
 	background-color: #7B003A;
 	color: #ffffff;
 }
+
+@media only screen and (max-width: 768px) {
+	.profile-container {
+		flex-direction: column; /* Stack child elements vertically */
+		align-items: center; /* Center-align the child elements for consistency */
+		gap: 20px; /* Adjust gap for vertical stacking */
+	}
+
+	.profile-details {
+		max-width: 100%; /* Allow the details section to use full width */
+		width: 100%; /* Override the previous width calculation to fill the container */
+		margin-top: 20px; /* Adjust the top margin for better spacing */
+		align-self: center; /* Center-align the profile details */
+	}
+
+	.profile-details h2, .profile-details em, .profile-details p {
+		text-align: center; /* Center-align text for better readability */
+	}
+
+	.profile-details p {
+		flex-direction: column; /* Stack flex items vertically */
+		gap: 5px; /* Add gap between label and data when stacked */
+	}
+
+	.profile-details span:first-child, .profile-details span:last-child {
+		width: 100%; /* Allow labels and data to fill their container */
+		text-align: center; /* Center-align the text for consistency */
+	}
+
+	.icon-actions {
+		justify-content: center; /* Center the icons horizontally */
+		margin-top: 20px; /* Adjust spacing above the icon actions */
+	}
+
+	.edit-user, .delete-user {
+		font-size: 25px; /* Adjust the icon size for better interaction */
+		margin: 0 5px; /* Adjust spacing around icons for compactness */
+	}
+
+	.upcoming-events {
+		max-width: 100%; /* Allow the upcoming events section to use full width */
+		width: 100%; /* Override the previous width calculation to fill the container */
+		margin-top: 20px; /* Adjust the top margin for better spacing */
+		align-self: center; /* Center-align the upcoming events */
+	}
+
+	.upcoming-events h2, .upcoming-events h4, .upcoming-events p {
+		text-align: center; /* Center-align text for better readability */
+	}
+
+	.upcoming-event-action {
+		justify-content: center; /* Center the action items */
+		flex-direction: row; /* Keep action items in a row for consistency */
+		gap: 10px; /* Add gap between action items */
+	}
+
+	.upcoming-event-action-item {
+		max-width: 100%; /* Allow action items to fill their container */
+		text-align: center; /* Center-align text within the action items */
+	}
+}

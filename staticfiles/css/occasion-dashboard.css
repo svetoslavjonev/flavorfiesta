@@ -206,6 +206,11 @@
 	color: #ffffff;
 }
 
+.occasion-admin {
+	display: flex;
+	flex-direction: row;
+}
+
 .edit-occasion, .delete-occasion {
 	font-size: 20px;
 	margin: 0 5px;
@@ -221,4 +226,71 @@
 	background-color: #7B003A;; /* Sample action button color */
 	border: none;
 	text-align: center; /* Center the text within the li element */
+}
+
+@media only screen and (max-width: 1025px) {
+	.occasion-container {
+		max-width: 100%; /* Make the container take the full width on smaller screens */
+		padding: 10px; /* Adjust padding for smaller screens */
+	}
+
+	.occasion-form-holder {
+		flex-direction: column; /* Stack form elements vertically */
+		align-items: center; /* Center-align items for better visual structure */
+	}
+
+	.occasion-form-holder .fa-calendar-days {
+		font-size: 50px; /* Adjust font size for icon */
+	}
+
+	.occasion-form p select {
+		font-size: 1em; /* Adjust font size for better readability */
+	}
+
+	/* Adjusting timetable and entries for a more linear layout */
+	.occasion-entry {
+		flex-direction: column; /* Stack the elements vertically */
+		align-items: center; /* Center-align the items */
+		padding: 15px; /* Adjust padding */
+	}
+
+	.occasion-date-weekday, .occasion-info, .occasion-venue, .occasion-actions {
+		width: 100%; /* Take full width for a linear layout */
+		align-items: center; /* Center-align the items */
+		text-align: center; /* Center-align the text */
+		margin-right: 0; /* Remove margin right */
+	}
+
+	.occasion-actions {
+		justify-content: center; /* Center the actions */
+		flex-direction: row; /* Adjust to row for actions to be side by side */
+		gap: 10px; /* Adjust gap for actions */
+	}
+
+	.actions-list {
+		flex-direction: row; /* Make actions list horizontal */
+		justify-content: center; /* Center the list */
+		gap: 10px; /* Adjust gap between actions */
+	}
+
+	.see-more, .book-now, .sold-out {
+		padding: 10px 20px; /* Increase padding for bigger buttons */
+		font-size: 1em; /* Increase font size for text inside buttons */
+		margin: 10px;
+	}
+
+	.edit-occasion, .delete-occasion {
+		font-size: 20px; /* Adjust font size for edit and delete icons */
+		justify-content: center; /* Ensure icons are centered */
+		margin: 0 10px; /* Adjust spacing around icons */
+	}
+
+	/* Ensure admin actions are displayed inline and centered */
+	.occasion-actions {
+		display: flex;
+		flex-direction: row; /* Align actions in a row */
+		justify-content: center; /* Center actions horizontally */
+		align-items: center; /* Center actions vertically */
+	}
+
 }
