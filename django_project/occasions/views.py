@@ -10,7 +10,7 @@ from django_project.occasions.forms import OccasionCreateForm, MonthYearForm, Oc
 
 
 class OccasionCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.CreateView):
-	permission_required = 'occasion.add_occasion'
+	permission_required = 'occasions.add_occasion'
 	template_name = 'occasions/occasion-create.html'
 	form_class = OccasionCreateForm
 	success_url = reverse_lazy('index')
