@@ -6,8 +6,8 @@ from django_project.venues.validators import validate_image_size_less_than_500kb
 
 class Venue(models.Model):
 
-	MAX_NAME_LENGTH = 50
-	MAX_LOC_LENGTH = 50
+	MAX_NAME_LENGTH = 60
+	MAX_LOC_LENGTH = 60
 	MAX_DESC_LENGTH = 600
 	IMAGE_SIZE = [400, 600]
 

@@ -11,7 +11,7 @@ UserModel = get_user_model()
 class Event(models.Model):
 
 	MAX_TYPE_LENGTH = 20
-	MAX_NAME_LENGTH = 50
+	MAX_NAME_LENGTH = 60
 	MAX_DESCRIPTION_LENGTH = 600
 	IMAGE_SIZE = [400, 600]
 	

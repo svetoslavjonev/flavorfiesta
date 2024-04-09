@@ -6,7 +6,7 @@ from django_project.chefs.validators import validate_image_size_less_than_500kb,
 
 class Chef(models.Model):
 
-	MAX_NAME_LENGTH = 50
+	MAX_NAME_LENGTH = 60
 	MAX_BIO_LENGTH = 600
 	IMAGE_SIZE = [400, 600]
 	
