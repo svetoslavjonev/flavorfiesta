@@ -11,6 +11,7 @@ from django_project.occasions.models import Occasion
 
 
 class ChefDashboardView(auth_mixin.LoginRequiredMixin, views.TemplateView):
+	login_url = "/profiles/singup-user/"
 	template_name = 'chefs/chef-dashboard.html'
 	model = Chef
 
@@ -21,6 +22,7 @@ class ChefDashboardView(auth_mixin.LoginRequiredMixin, views.TemplateView):
 
 
 class ChefDetailsView(auth_mixin.LoginRequiredMixin, views.TemplateView):
+	login_url = "/profiles/singup-user/"
 	template_name = 'chefs/chef-details.html'
 
 	def get_context_data(self, **kwargs):
@@ -36,6 +38,7 @@ class ChefDetailsView(auth_mixin.LoginRequiredMixin, views.TemplateView):
 
 class ChefCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.CreateView):
 	permission_required = 'chefs.add_chef'
+	login_url = "/profiles/singup-user/"
 	template_name = 'chefs/chef-create.html'
 	form_class = ChefForm
 
@@ -45,6 +48,7 @@ class ChefCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequire
 
 class ChefEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
 	permission_required = 'chefs.change_chef'
+	login_url = "/profiles/singup-user/"
 	model = Chef
 	template_name = 'chefs/chef-edit.html'
 	form_class = ChefForm
@@ -55,6 +59,7 @@ class ChefEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredM
 
 class ChefDeleteView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.DeleteView):
 	permission_required = 'chefs.delete_chef'
+	login_url = "/profiles/singup-user/"
 	model = Chef
 	template_name = 'chefs/chef-delete.html'
 

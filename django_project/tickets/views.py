@@ -5,6 +5,7 @@ from django_project.tickets.forms import TicketForm
 
 
 class TicketCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.CreateView):
+	login_url = "/profiles/singup-user/"
 	permission_required = 'tickets.add_ticket'
 	form_class = TicketForm
 	template_name = 'tickets/ticket-create.html'

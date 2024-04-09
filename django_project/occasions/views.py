@@ -10,6 +10,7 @@ from django_project.occasions.forms import OccasionCreateForm, MonthYearForm, Oc
 
 
 class OccasionCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.CreateView):
+	login_url = "/profiles/singup-user/"
 	permission_required = 'occasions.add_occasion'
 	template_name = 'occasions/occasion-create.html'
 	form_class = OccasionCreateForm
@@ -17,6 +18,7 @@ class OccasionCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionReq
 
 
 class OccasionByMonthYearView(auth_mixin.LoginRequiredMixin, views.FormView):
+	login_url = "/profiles/singup-user/"
 	template_name = 'occasions/occasion-dashboard.html'
 	form_class = MonthYearForm
 
@@ -66,6 +68,7 @@ class OccasionByMonthYearView(auth_mixin.LoginRequiredMixin, views.FormView):
 		return context
 
 class OccasionEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
+	login_url = "/profiles/singup-user/"
 	permission_required = 'occasions.change_occasion'
 	model = Occasion
 	template_name = 'occasions/occasion-edit.html'
@@ -75,6 +78,7 @@ class OccasionEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequi
 		return reverse_lazy('occasion-dashboard')
 
 class OccasionDeleteView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.DeleteView):
+	login_url = "/profiles/singup-user/"
 	permission_required = 'occasions.delete_occasion'
 	model = Occasion
 	template_name = 'occasions/occasion-delete.html'

@@ -11,6 +11,9 @@ from django_project.tickets.models import Ticket
 
 
 class BookingView(auth_mixin.LoginRequiredMixin, views.View):
+
+	login_url = "/profiles/singup-user/"
+	
 	def get_context_data(self, **kwargs):
 		context = {}
 		occasion_id = kwargs.get('occasion_id')  # Assumes 'occasion_id' is captured from the URL
@@ -83,6 +86,7 @@ class BookingView(auth_mixin.LoginRequiredMixin, views.View):
 		return render(request, 'bookings/book-occasion.html', context)
 
 class BookingDetailView(auth_mixin.LoginRequiredMixin, views.DetailView):
+	login_url = "/profiles/singup-user/"
 	model = Booking
 	context_object_name = 'booking'
 	template_name = 'bookings/booking-details.html'

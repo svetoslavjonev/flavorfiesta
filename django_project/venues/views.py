@@ -11,6 +11,7 @@ from django_project.occasions.models import Occasion
 
 
 class VenueDashboardView(auth_mixin.LoginRequiredMixin, views.TemplateView):
+	login_url = "/profiles/singup-user/"
 	template_name = 'venues/venue-dashboard.html'
 	model = Venue
 
@@ -21,6 +22,7 @@ class VenueDashboardView(auth_mixin.LoginRequiredMixin, views.TemplateView):
 
 
 class VenueDetailsView(auth_mixin.LoginRequiredMixin, views.TemplateView):
+	login_url = "/profiles/singup-user/"
 	template_name = 'venues/venue-details.html'
 
 	def get_context_data(self, **kwargs):
@@ -35,6 +37,7 @@ class VenueDetailsView(auth_mixin.LoginRequiredMixin, views.TemplateView):
 
 
 class VenueCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.CreateView):
+	login_url = "/profiles/singup-user/"
 	permission_required = 'venues.add_venue'
 	template_name = 'venues/venue-create.html'
 	form_class = VenueForm
@@ -44,6 +47,7 @@ class VenueCreateView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequir
 
 
 class VenueEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
+	login_url = "/profiles/singup-user/"
 	permission_required = 'venues.change_venue'
 	model = Venue
 	template_name = 'venues/venue-edit.html'
@@ -54,6 +58,7 @@ class VenueEditView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequired
 
 
 class VenueDeleteView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.DeleteView):
+	login_url = "/profiles/singup-user/"
 	permission_required = 'venues.delete_venue'
 	model = Venue
 	template_name = 'venues/venue-delete.html'
