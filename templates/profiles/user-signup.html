@@ -13,15 +13,19 @@
 			<form class="profile-form" action="{% url 'signup-user' %}" method="POST">
 				<p>
 					{{ form.username|placeholder:"Username" }}
+					{{ form.username.errors }}
 				</p>
 				<p>
 					{{ form.email|placeholder:"Email" }}
+					{{ form.email.errors }}
 				</p>
 				<p>
 					{{ form.password1|placeholder:"Password" }}
+					{{ form.password1.errors }}
 				</p>
 				<p>
 					{{ form.password2|placeholder:"Confirm password" }}
+					{{ form.password2.errors }}
 				</p>
 				{% csrf_token %}
 				<button type="submit">Sign Up</button>

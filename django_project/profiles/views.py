@@ -25,13 +25,14 @@ class OwnerRequiredMixin(auth_mixin.AccessMixin):
 
 
 class SignInUserView(auth_views.LoginView):
-    template_name = "profiles/user-signin.html"
-    success_url = reverse_lazy('index')
+	template_name = "profiles/user-signin.html"
+	success_url = reverse_lazy('index')
 
-    def get_success_url(self):
-        if self.success_url:
-            return self.success_url
-        return super().get_success_url()
+	def get_success_url(self):
+		if self.success_url:
+			return self.success_url
+		return super().get_success_url()
+
 
 
 def signout_user(request):
