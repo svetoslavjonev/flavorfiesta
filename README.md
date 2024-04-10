@@ -1,20 +1,28 @@
 # flavor fiesta
-- flavour fiesta is a Django-based platform designed to connect culinary enthusiasts with a variety of events.
+
+	- flavour fiesta is a Django-based platform designed to connect culinary enthusiasts with a variety of events.
 
 ## Powered By
+
 - Python
 - Django/Django Rest Framework
 - HTML+DTL/CSS/JavaScript
+
+## Demo
+
+- https://flavorfiesta.replit.app/
   
 ## Structure
 
-1. Index (/)
+**1. Index (/)**
    - Landing page with short description and sign in/ sign up functionality
 
    ![image](screenshots/index.png)
 
-3. Authorization (admin/) \
+**2. Authorization (admin/)**
+
 	Fully configured staff roles:
+	
    - SiteAdmin - Complete control over the created content.
    - UserAdmin - CRUD operations for users.
    - ContentAdmin - CRUD operations for events, chefs and venues.
@@ -23,7 +31,8 @@
 
 	![image](screenshots/admin.png)
 
-4. Authentication and Profile Management (profiles/)
+**3. Authentication and Profile Management (profiles/)**
+
 	- profiles/signin-user/ - Allows users to securely log in, accessing personalized features and settings.
 	- profiles/signout-user/ - Ensures the end of the session, safeguarding user data by logging them out.
 	- profiles/signup-user/ - Enables new users to register, inviting them to explore culinary experiences.
@@ -33,9 +42,10 @@
 
 	![image](screenshots/profile.png)
 
-	<strong>!Important:</strong> Administration links and icons are visible only by staff users and the access to specific pages is further limited, based on user authorization.
+	!Important: Administration links and icons are visible only by staff users and the access to specific pages is further limited, based on user authorization.
 
-5. Events Section (events/)
+**4. Events Section (events/)**
+
 	- events/ - Displays the dashboard with a collection of culinary events, inviting users to explore.
 	- events/details/int:pk/slug:slug/ - Shows detailed information about an event, including image, description and booking options.
 	- events/create/ - Enables authorized users to create new culinary events, expanding the platform's offerings.
@@ -46,7 +56,8 @@
 
 	![image](screenshots/events.png)
 
-6. Chefs Section (chefs/)
+**5. Chefs Section (chefs/)**
+
 	- chefs/ - Presents a dashboard showcasing featured chefs and their culinary expertise.
 	- chefs/details/int:pk/slug:slug/ - Provides a detailed view of a chef's profile, including biography, specialties, and upcoming events.
 	- chefs/create/ - Allows the creation of new chef profiles.
@@ -55,7 +66,8 @@
 
 	![image](screenshots/chefs.png)
 
-7. Venues Section (venues/)
+**6. Venues Section (venues/)**
+
 	- venues/ -  Displays a dashboard of venues, highlighting locations for culinary events and experiences.
 	- venues/details/int:pk/slug:slug/ - Shows detailed venue information, including upcoming events at the venue.
 	- venues/create/ - Permits the addition of new venues to the platform.
@@ -64,7 +76,8 @@
 
 	![image](screenshots/venues.png)
 
-8. Occasions Section (occasions/)
+**7. Occasions Section (occasions/)**
+
     - occasions/dashboard/ - Displays a dashboard of occasions organized by month and year, offering users an overview of upcoming culinary activities.
 	- occasions/create/ - Permits the addition of new occasions to the platform, facilitating the scheduling of culinary events.
 	- occasions/edit/int:pk/ - Allows for the editing of occasion details by authorized users.
@@ -72,16 +85,19 @@
 
 	![image](screenshots/occasions.png)
 
-9. Tickets Section (tickets/)
+**8. Tickets Section (tickets/)**
+
     - tickets/create/ - Enables authorized users to create new ticket types with various prices for a selected occasion.
 
-10. Booking Management (bookings/)
+**9. Booking Management (bookings/)**
+
 	- bookings/book-occasion/int:occasion_id/ - Allows users to initiate a booking for a specific occasion, offering a choice of available tickets.
 	- bookings/booking-details/int:pk/ - Displays detailed information about a user's booking, including event, chef, venue, date, seats and  total price, ensuring easy access to booking specifics.
 
 	![image](screenshots/booking.png)
 
-11. API (api/)
+**10. API (api/)**
+
 	API integration designed for third-party sites, allowing only GET requests to retrieve information without modifying the database.
 	- api/events/ - Retrieves a list of all culinary events. Supports filtering by event name (?name=) and event type (?event_type=), enabling users to find specific events of interest.
 	- api/chefs/ - Provides a list of chefs featured on the platform. Supports search by chef name (?name=) and specialty (?specialty=), facilitating the discovery of chefs based on their culinary expertise.
