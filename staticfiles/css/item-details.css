@@ -183,6 +183,7 @@ hr.solid {
 
 	.edit-item, .delete-item {
 		margin: 0 5px; /* Adjust spacing around icons */
+		z-index: 55;
 	}
 
 	.next-events {

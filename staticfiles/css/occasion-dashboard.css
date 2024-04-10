@@ -259,6 +259,7 @@
 		align-items: center; /* Center-align the items */
 		text-align: center; /* Center-align the text */
 		margin-right: 0; /* Remove margin right */
+		
 	}
 
 	.occasion-actions {
@@ -277,12 +278,14 @@
 		padding: 10px 20px; /* Increase padding for bigger buttons */
 		font-size: 1em; /* Increase font size for text inside buttons */
 		margin: 10px;
+		z-index: 55;
 	}
 
 	.edit-occasion, .delete-occasion {
 		font-size: 20px; /* Adjust font size for edit and delete icons */
 		justify-content: center; /* Ensure icons are centered */
 		margin: 0 10px; /* Adjust spacing around icons */
+		z-index: 55;
 	}
 
 	/* Ensure admin actions are displayed inline and centered */

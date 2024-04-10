@@ -171,6 +171,7 @@ hr.solid {
 	.edit-user, .delete-user {
 		font-size: 25px; /* Adjust the icon size for better interaction */
 		margin: 0 5px; /* Adjust spacing around icons for compactness */
+		z-index: 55;
 	}
 
 	.upcoming-events {
@@ -181,7 +182,7 @@ hr.solid {
 	}
 
 	.upcoming-events h2, .upcoming-events h4, .upcoming-events p {
-		text-align: center; /* Center-align text for better readability */
+		text-align: left; /* Center-align text for better readability */
 	}
 
 	.upcoming-event-action {
