@@ -9,6 +9,8 @@ from django_project.bookings.forms import BookingForm
 from django_project.occasions.models import Occasion, Seat
 from django_project.tickets.models import Ticket
 
+from collections import Counter
+
 
 class BookingView(auth_mixin.LoginRequiredMixin, views.View):
 
@@ -44,6 +46,7 @@ class BookingView(auth_mixin.LoginRequiredMixin, views.View):
 			tickets_data = form.cleaned_data
 			total_price = 0
 			reserved_seats = []
+			type_of_tickets = []
 
 			try:
 				with transaction.atomic():
@@ -62,14 +65,17 @@ class BookingView(auth_mixin.LoginRequiredMixin, views.View):
 							seat.is_booked = True
 							seat.save()
 							reserved_seats.append(str(seat.seat_number))
+							type_of_tickets.append(ticket.ticket_type)
 							total_price += ticket.price
-
+							
+					ticket_counts = Counter(type_of_tickets)
 					# Only proceed with creating the booking if no ValidationError has been raised
 					booking = Booking.objects.create(
 						occasion=occasion,
 						user=request.user,
 						total_price=total_price,
 						reserved_seats=', '.join(reserved_seats),
+						type_of_tickets= ", ".join([f"{count} x {ticket}" for ticket, count in ticket_counts.items()]),
 						number_of_tickets=sum(tickets_data.values()),
 						is_completed=True
 					)
