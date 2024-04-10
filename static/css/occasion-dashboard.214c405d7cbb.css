@@ -1,0 +1,299 @@
+.occasion-container {
+	max-width: 1280px;
+	margin: 0 auto;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+.occasion-form-holder {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	gap: 15px;
+}
+
+.occasion-form-holder .fa-calendar-days {
+	font-size: 70px;
+	padding: 6px;
+	color: #7B003A;
+}
+
+.occasion-form {
+	display: flex;
+	justify-content: left;
+	background-color: transparent;
+	gap: 10px;
+}
+
+.occasion-form p select {
+	width: 100%;
+	padding: 15px;
+	border: 2px solid #7B003A;
+	display: block;
+	font-size: 1.25em;
+	box-sizing: border-box;
+	border-radius: 4px;
+	cursor: pointer; /* Show a pointer cursor to indicate this is a dropdown */
+	font-family: 'Hanken Grotesk', sans-serif;
+}
+
+.occasion-form p option {
+	padding: 15px;
+	border: 2px solid #7B003A;
+	font-family: 'Hanken Grotesk', sans-serif;
+	backgrond-color: #ffffff;
+}
+
+
+/* Timetable Styling */
+.occasions-timetable {
+	margin-top: 20px;
+}
+
+.occasion-entry {
+	background-color: #fff;
+	padding: 25px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-grow;
+	align-items: center;
+	margin-bottom: 10px;
+}
+
+.occasion-date-weekday {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+	gap: 5px;
+	width: 10%;
+}
+
+.date {
+	color: #7B003A;
+	font-size: 3em;
+	font-weight: bold;
+}
+
+.weekday {
+	color: #36454f;
+	font-size: 0.9em;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+.occasion-info {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+	gap: 5px;
+	width: 35%;
+	margin-right: 50px;
+}
+
+.occasion-time {
+	color: #36454f;
+	font-size: 1.1em;
+}
+
+.occasion-name {
+	color: #7B003A;
+	font-size: 1.75em;
+	font-weight: bold;
+}
+
+.occasion-name a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.occasion-name a:hover {
+	text-decoration: underline;
+}
+
+.occasion-chef {
+	color: #36454f;
+	font-size: 1.1em;
+}
+
+.occasion-chef a {
+	color: inherit;
+	text-decoration: none;
+}
+
+.occasion-chef a:hover {
+	text-decoration: underline;
+}
+
+
+.occasion-venue {
+	display: flex;
+	flex-direction: column;
+	align-items: left;
+	justify-content: left;
+	width: 35%;
+	gap: 5px;
+}
+
+.occasion-venue-name {
+	color: #36454f;
+	font-size: 1.1em;
+}
+
+.occasion-location {
+	color: #36454f;
+	font-size: 1.1em;
+}
+
+.occasion-venue-name a{
+	color: inherit;
+	text-decoration: none;
+}
+
+.occasion-venue-name a:hover{
+	text-decoration: underline;
+}
+
+.occasion-actions {
+	display: flex;
+	flex-direction: column;
+	align-items: right;
+	justify-content: center;
+	width: 15%;
+	margin-right: 10px;
+}
+
+.actions-list {
+	list-style: none; /* Remove default list styling */
+	padding: 0; /* Remove default padding */
+	margin: 0; /* Remove default margin */
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.see-more {
+	padding: 10px 20px;
+	color: #36454f;
+	background-color: #ffffff; /* Sample action button color */
+	border: 1px solid #36454f;
+	cursor: pointer;
+	transition: all 0.75s ease;
+	text-align: center; /* Center the text within the li element */
+}
+
+
+.see-more:hover {
+	background-color: #36454f;
+	color: #ffffff;
+}
+
+.book-now {
+	padding: 10px 20px;
+	color: 	#7b003a;
+	background-color: 	#cccccc; /* Sample action button color */
+	border: none;
+	cursor: pointer;
+	transition: all 0.75s ease;
+	text-align: center; /* Center the text within the li element */
+}
+
+.book-now:hover {
+	background-color: #7B003A;
+	color: #ffffff;
+}
+
+.occasion-admin {
+	display: flex;
+	flex-direction: row;
+}
+
+.edit-occasion, .delete-occasion {
+	font-size: 20px;
+	margin: 0 5px;
+	text-decoration: none;
+	display: flex;
+	justify-content: center;
+	align-items: end;
+}
+
+.sold-out {
+	padding: 10px 20px;
+	color: #ffffff;
+	background-color: #7B003A;; /* Sample action button color */
+	border: none;
+	text-align: center; /* Center the text within the li element */
+}
+
+@media only screen and (max-width: 1025px) {
+	.occasion-container {
+		max-width: 100%; /* Make the container take the full width on smaller screens */
+		padding: 10px; /* Adjust padding for smaller screens */
+	}
+
+	.occasion-form-holder {
+		flex-direction: column; /* Stack form elements vertically */
+		align-items: center; /* Center-align items for better visual structure */
+	}
+
+	.occasion-form-holder .fa-calendar-days {
+		font-size: 50px; /* Adjust font size for icon */
+	}
+
+	.occasion-form p select {
+		font-size: 1em; /* Adjust font size for better readability */
+	}
+
+	/* Adjusting timetable and entries for a more linear layout */
+	.occasion-entry {
+		flex-direction: column; /* Stack the elements vertically */
+		align-items: center; /* Center-align the items */
+		padding: 15px; /* Adjust padding */
+	}
+
+	.occasion-date-weekday, .occasion-info, .occasion-venue, .occasion-actions {
+		width: 100%; /* Take full width for a linear layout */
+		align-items: center; /* Center-align the items */
+		text-align: center; /* Center-align the text */
+		margin-right: 0; /* Remove margin right */
+		
+	}
+
+	.occasion-actions {
+		justify-content: center; /* Center the actions */
+		flex-direction: row; /* Adjust to row for actions to be side by side */
+		gap: 10px; /* Adjust gap for actions */
+	}
+
+	.actions-list {
+		flex-direction: row; /* Make actions list horizontal */
+		justify-content: center; /* Center the list */
+		gap: 10px; /* Adjust gap between actions */
+	}
+
+	.see-more, .book-now, .sold-out {
+		padding: 10px 20px; /* Increase padding for bigger buttons */
+		font-size: 1em; /* Increase font size for text inside buttons */
+		margin: 10px;
+		z-index: 55;
+	}
+
+	.edit-occasion, .delete-occasion {
+		font-size: 20px; /* Adjust font size for edit and delete icons */
+		justify-content: center; /* Ensure icons are centered */
+		margin: 0 10px; /* Adjust spacing around icons */
+		z-index: 55;
+	}
+
+	/* Ensure admin actions are displayed inline and centered */
+	.occasion-actions {
+		display: flex;
+		flex-direction: row; /* Align actions in a row */
+		justify-content: center; /* Center actions horizontally */
+		align-items: center; /* Center actions vertically */
+	}
+
+}

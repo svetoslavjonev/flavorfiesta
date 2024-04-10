@@ -1,0 +1,203 @@
+.item-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: safe center;
+	gap: 25px;
+}
+
+.details-comments-wrapper {
+	display: flex;
+	flex-direction: column;
+	max-width: 800px; /* Limiting the width of the wrapper to 800px */
+	width: calc(66% - 10px); /* Adjust the width as per your layout requirements */
+}
+
+.item-details {
+	background-color: #ffffff; /* White background */
+	padding: 20px;
+	box-sizing: border-box;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+	margin-top: 40px; /* Centering */
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+}
+
+.item-image{
+	width: calc(50% - 10px);
+}
+
+.item-image img {
+	width: 100%; /* Ensure the image scales to the width of its container */
+	height: auto; /* Maintain aspect ratio */
+	object-fit: cover; /* Ensures the image scales down if it's too big, without cropping */
+}
+
+.item-content {
+	width: calc(55% - 10px);
+}
+
+.item-content h2 {
+	color: #7B003A; /* Dark grey color, consistent with body text color */
+	font-size: 1.75em;
+	text-align: left;
+	margin-top: 0;
+}
+
+.item-content h4 {
+	color: #36454f; /* Dark grey color, consistent with body text color */
+	font-size: 1.1em;
+	text-align: left;
+	margin-top: 0;
+}
+
+.item-content p {
+	display: flex; /* Enable Flexbox for each paragraph */
+	justify-content: space-between; /* Align label on the left and data on the right */
+	line-height: 1.5;
+	margin-bottom: 10px;
+	font-size: 1.1em;
+	color: #36454f; /* Dark grey color */
+}
+
+.item-admin {
+  display: flex;
+  justify-content: flex-end; /* Centers children horizontally in the container */
+  align-items: right;
+  margin-top: 10px; /* Adds some space above the icon-actions container */
+}
+
+.edit-item, .delete-item {
+  font-size: 20px; /* Increases the icon size */
+  margin: 0 10px; /* Adds horizontal space around the icons */
+  color: #36454f; /* Consistent with the overall design color scheme */
+  text-decoration: none; /* Removes underline from links */
+  display: flex; /* Ensures these elements are also flex containers */
+  justify-content: center; /* Centers the content (icon) within */
+  align-items: center; /* Vertically centers the icon */
+}
+
+.fa-pencil {
+  color: #ffb300; /* Custom color for the edit icon */
+}
+
+.fa-trash-can {
+  color: #7B003A; /* Custom color for the delete icon */
+}
+
+.next-events {
+	background-color: #ffffff; /* White background */
+	padding: 20px 30px;
+	box-sizing: border-box;
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+	max-width: 400px; /* Maximum width */
+	margin-top: 40px; /* Centering */
+	width: calc(34% - 10px);
+	align-self: flex-start;
+}
+
+.next-events h2 {
+	color: #7B003A; 
+	font-size: 1.75em;
+	text-align: left;
+	margin-top: 0;
+}
+
+.next-events h4 {
+	color: #7B003A;
+	font-size: 1.1em;
+	text-align: left;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.next-events p {
+	display: flex; /* Enable Flexbox for each paragraph */
+	justify-content: space-between; /* Align label on the left and data on the right */
+	line-height: 1.5;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 1.1em;
+	color: #36454f; /* Dark grey color */
+}
+
+hr.solid {
+  border-top: 1px solid #7B003A;
+}
+
+.next-event-action {
+	display: flex;
+	flex-direction: row-reverse;
+}
+
+.next-event-action-item {
+	padding: 5px 15px;
+	color: 	#7b003a;
+	background-color: 	#cccccc; /* Sample action button color */
+	border: none;
+	cursor: pointer;
+	transition: all 0.75s ease;
+	text-align: center; /* Center the text within the li element */
+	min-width: 80px;
+}
+
+.next-event-action-item:hover {
+	background-color: #7B003A;
+	color: #ffffff;
+}
+
+.next-event-sold-out {
+	padding: 5px 15px;
+	color: 	#ffffff;
+	background-color: #7b003a; /* Sample action button color */
+	border: none;
+	text-align: center; /* Center the text within the li element */
+	min-width: 80px;
+}
+
+@media only screen and (max-width: 768px) {
+	.item-container {
+		flex-direction: column; /* Stack items vertically */
+		align-items: center; /* Center-align the items */
+		gap: 10px; /* Adjust gap between items */
+	}
+
+	.details-comments-wrapper {
+		max-width: 100%; /* Use full width available */
+		width: 100%; /* Override the previous width calculation */
+	}
+
+	.item-details {
+		flex-direction: column; /* Stack details elements vertically */
+		margin-top: 10px; /* Adjust top margin */
+	}
+
+	.item-image, .item-content {
+		width: 100%; /* Use full width for image and content */
+	}
+
+	.item-admin {
+		justify-content: center; /* Center admin actions */
+		margin-top: 20px; /* Adjust top margin for better spacing */
+	}
+
+	.edit-item, .delete-item {
+		margin: 0 5px; /* Adjust spacing around icons */
+		z-index: 55;
+	}
+
+	.next-events {
+		max-width: 100%; /* Use the full width available */
+		width: 100%; /* Override the previous width calculation */
+		align-self: center; /* Align to the center */
+	}
+
+	.next-event-action {
+		flex-direction: row; /* Align action items in a row */
+		justify-content: center; /* Center the action items */
+	}
+
+	.next-event-action-item, .next-event-sold-out {
+		margin: 10px 5px; /* Adjust margins for spacing */
+	}
+}
