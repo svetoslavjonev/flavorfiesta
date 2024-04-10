@@ -1,5 +1,5 @@
 # flavor fiesta
-- flavour fiesta is a Django-based platform designed to connect culinary enthusiasts with a variety of culinary events.
+- flavour fiesta is a Django-based platform designed to connect culinary enthusiasts with a variety of events.
 
 ## Powered By
 - Python
