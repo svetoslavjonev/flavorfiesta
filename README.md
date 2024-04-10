@@ -1,5 +1,5 @@
 # flavor fiesta
-- Django app for booking culinary adventures - premium cooking classes and tasting events with top chefs at great venues
+- flavour fiesta is a Django-based platform designed to connect culinary enthusiasts with a variety of culinary events.
 
 ## Powered By
 - Python
@@ -53,6 +53,8 @@
 	- chefs/edit/int:pk/slug:slug/ - Enables updates to chef profiles, ensuring the accuracy of their information.
 	- chefs/delete/int:pk/slug:slug/ - Allows authorized users to delete chef profiles.
 
+	![image](screenshots/chefs.png)
+
 7. Venues Section (venues/)
 	- venues/ -  Displays a dashboard of venues, highlighting locations for culinary events and experiences.
 	- venues/details/int:pk/slug:slug/ - Shows detailed venue information, including upcoming events at the venue.
@@ -60,11 +62,15 @@
 	- venues/edit/int:pk/slug:slug/ - Allows for the editing of venue details from authorized users.
 	- venues/delete/int:pk/slug:slug/ - Enables the removal of venues from the platform from authorized users.
 
+	![image](screenshots/venues.png)
+
 8. Occasions Section (occasions/)
     - occasions/dashboard/ - Displays a dashboard of occasions organized by month and year, offering users an overview of upcoming culinary activities.
 	- occasions/create/ - Permits the addition of new occasions to the platform, facilitating the scheduling of culinary events.
 	- occasions/edit/int:pk/ - Allows for the editing of occasion details by authorized users.
 	- occasions/delete/int:pk/ - Enables the removal of occasions from the platform by authorized users.
+
+	![image](screenshots/occasions.png)
 
 9. Tickets Section (tickets/)
     - tickets/create/ - Enables authorized users to create new ticket types with various prices for a selected occasion.
@@ -72,6 +78,8 @@
 10. Booking Management (bookings/)
 	- bookings/book-occasion/int:occasion_id/ - Allows users to initiate a booking for a specific occasion, offering a choice of available tickets.
 	- bookings/booking-details/int:pk/ - Displays detailed information about a user's booking, including event, chef, venue, date, seats and  total price, ensuring easy access to booking specifics.
+
+	![image](screenshots/booking.png)
 
 11. API (api/)
 	API integration designed for third-party sites, allowing only GET requests to retrieve information without modifying the database.
