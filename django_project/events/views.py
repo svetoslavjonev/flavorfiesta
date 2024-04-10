@@ -91,8 +91,8 @@ class EventDeleteView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequir
 
 
 class EditCommentView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.UpdateView):
+	permission_required = 'events.change_eventcomment'
 	login_url = "/profiles/signin-user/"
-	permission_required = 'eventcomment.change_eventcomment'
 	template_name = 'events/comment-edit.html'
 	model = EventComment
 	fields = ('content',)
@@ -104,7 +104,7 @@ class EditCommentView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequir
 
 class DeleteCommentView(auth_mixin.LoginRequiredMixin, auth_mixin.PermissionRequiredMixin, views.DeleteView):
 	login_url = "/profiles/signin-user/"
-	permission_required = 'eventcomment.delete_eventcomment'
+	permission_required = 'events.delete_eventcomment'
 	template_name = 'events/comment-delete.html'
 	model = EventComment
 
