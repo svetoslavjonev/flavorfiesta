@@ -7,10 +7,6 @@
 - Python
 - Django/Django Rest Framework
 - HTML+DTL/CSS/JavaScript
-
-## Demo
-
-- https://flavorfiesta.site/
   
 ## Structure
 
