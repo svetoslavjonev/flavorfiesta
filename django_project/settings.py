@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = True
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=list)
-CSRF_TRUSTED_ORIGINS = config('CSRF_TRUSTED_ORIGINS').split(" ")
+ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ['https://*.com', 'https://*.dev', 'https://*.co']
 
 # Application definition
 
@@ -96,12 +96,12 @@ DATABASES = {
     #    'NAME': BASE_DIR / 'db.sqlite3',
     #},
 	'default': {
-		'ENGINE': config("DB_ENGINE"),
-		'NAME': config("DB_NAME"),
-		'USER': config("DB_USER"),
-		'PASSWORD': config("DB_PASSWORD"),
-		'HOST': config("DB_HOST"),
-		'PORT': config("DB_PORT"),   
+		'ENGINE': os.getenv("PGENGINE"),
+		'NAME': os.getenv("PGDATABASE"),
+		'USER': os.getenv("PGUSER"),
+		'PASSWORD': os.getenv("PGPASSWORD"),
+		'HOST': os.getenv("PGHOST"),
+		'PORT': os.getenv("PGPORT"),   
 	}
 }
 
